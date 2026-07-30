@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Muzammil ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+</head>
+
+<body>
+
+<div id="intro">
+
+<h1>Happy Birthday</h1>
+
+<h2>Muzammil ❤️</h2>
+
+<p>Made with endless love by Aiman</p>
+
+<button onclick="startWebsite()">Enter</button>
+
+</div>
+
+<div id="passwordScreen" class="hidden">
+
+<h2>Enter Password</h2>
+
+<input type="password" id="password" placeholder="Password">
+
+<button onclick="checkPassword()">Unlock</button>
+
+<p id="wrongPassword"></p>
+
+</div>
+
+<div id="website" class="hidden">
+
+<nav>
+
+<a href="#home">Home</a>
+
+<a href="#story">Story</a>
+
+<a href="#gallery">Gallery</a>
+
+<a href="#letters">Letters</a>
+
+<a href="#reasons">100 Reasons</a>
+
+</nav>
+
+<section id="home">
+
+<h1>Happy Birthday My Husband ❤️</h1>
+
+<h2>Aiman ❤️ Muzammil</h2>
+
+<p>
+Every heartbeat of mine carries your name.
+Today is all about celebrating the wonderful person you are.
+</p>
+
+</section>
+
+<section id="countdown">
+
+<h2>Your Birthday Countdown</h2>
+
+<div id="timer"></div>
+
+</section>
+
+<section id="story">
+
+<h1>Our Story</h1>
+
+<div class="timeline">
+
+<div class="card">
+
+<h2>First Meeting</h2>
+
+<p>Where our beautiful journey began...</p>
+
+</div>
+
+<div class="card">
+
+<h2>We Fell in Love</h2>
+
+<p>Every day together became a blessing.</p>
+
+</div>
+
+<div class="card">
+
+<h2>Nikkah ❤️</h2>
+
+<p>11 April 2026</p>
+
+</div>
+
+<div class="card">
+
+<h2>Forever</h2>
+
+<p>Just the beginning of our forever.</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="gallery">
+
+<h1>Our Memories</h1>
+
+<div class="gallery">
+
+<img src="images/photo1.jpg">
+
+<img src="images/photo2.jpg">
+
+<img src="images/photo3.jpg">
+
+<img src="images/photo4.jpg">
+
+<img src="images/photo5.jpg">
+
+<img src="images/photo6.jpg">
+
+</div>
+
+</section>
+
+<section id="letters">
+
+<h1>Open When...</h1>
+
+<div class="letter">Open When You Miss Me</div>
+
+<div class="letter">Open When You're Sad</div>
+
+<div class="letter">Open When You're Happy</div>
+
+<div class="letter">Open On Our Anniversary</div>
+
+</section>
+
+<section id="reasons">
+
+<h1>100 Reasons I Love You</h1>
+
+<div id="reasonContainer"></div>
+
+</section>
+
+<section id="final">
+
+<h1>I Love You Forever ❤️</h1>
+
+<p>
+Happy Birthday to the love of my life.
+No matter where life takes us,
+I'll always choose you.
+</p>
+
+<button onclick="celebrate()">Celebrate 🎉</button>
+
+</section>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#fffdfc;
+color:#444;
+overflow-x:hidden;
+}
+
+section{
+padding:80px 8%;
+text-align:center;
+}
+
+h1{
+font-family:'Cormorant Garamond',serif;
+font-size:55px;
+color:#c58b8b;
+margin-bottom:20px;
+}
+
+h2{
+font-family:'Cormorant Garamond',serif;
+font-size:35px;
+margin-bottom:15px;
+}
+
+p{
+font-size:18px;
+line-height:1.8;
+}
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:white;
+display:flex;
+justify-content:center;
+gap:30px;
+padding:18px;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+z-index:999;
+}
+
+nav a{
+text-decoration:none;
+color:#c58b8b;
+font-weight:600;
+transition:.3s;
+}
+
+nav a:hover{
+color:#8c5d5d;
+}
+
+.hidden{
+display:none;
+}
+
+#intro{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ffffff,#fff3f4);
+text-align:center;
+}
+
+#intro button,
+button{
+padding:14px 40px;
+margin-top:25px;
+border:none;
+border-radius:40px;
+background:#d7a7a7;
+color:white;
+font-size:18px;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.08);
+background:#c58b8b;
+}
+
+#passwordScreen{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
+
+input{
+padding:15px;
+width:280px;
+border:2px solid #e6c4c4;
+border-radius:30px;
+outline:none;
+margin-top:15px;
+font-size:17px;
+}
+
+.timeline{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-top:50px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:25px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px;
+margin-top:40px;
+}
+
+.gallery img{
+width:100%;
+border-radius:18px;
+transition:.4s;
+cursor:pointer;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+.letter{
+background:white;
+padding:22px;
+margin:20px auto;
+max-width:500px;
+border-radius:20px;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+cursor:pointer;
+transition:.3s;
+}
+
+.letter:hover{
+background:#fff5f5;
+transform:scale(1.03);
+}
+
+#reasonContainer{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+margin-top:40px;
+}
+
+.reason{
+background:white;
+padding:20px;
+border-radius:20px;
+box-shadow:0 10px 20px rgba(0,0,0,.08);
+}
+
+#timer{
+font-size:42px;
+font-weight:bold;
+margin-top:20px;
+color:#c58b8b;
+}
+
+#final{
+background:linear-gradient(135deg,#fff,#fdeaea);
+}
+
+@media(max-width:768px){
+
+h1{
+font-size:38px;
+}
+
+h2{
+font-size:28px;
+}
+
+nav{
+gap:15px;
+font-size:14px;
+flex-wrap:wrap;
+}
+
+}// ===== START WEBSITE =====
+function startWebsite() {
+    document.getElementById("intro").classList.add("hidden");
+    document.getElementById("passwordScreen").classList.remove("hidden");
+}
+
+// ===== PASSWORD =====
+function checkPassword() {
+    const password = document.getElementById("password").value;
+
+    if (password === "110426") {
+        document.getElementById("passwordScreen").classList.add("hidden");
+        document.getElementById("website").classList.remove("hidden");
+    } else {
+        document.getElementById("wrongPassword").innerHTML = "❌ Wrong Password";
+    }
+}
+
+// ===== BIRTHDAY COUNTDOWN =====
+// Change the year if needed
+const birthday = new Date("August 15, 2026 00:00:00").getTime();
+
+setInterval(function () {
+
+    const now = new Date().getTime();
+
+    const distance = birthday - now;
+
+    if (distance <= 0) {
+        document.getElementById("timer").innerHTML =
+            "🎉 Happy Birthday Muzammil ❤️";
+        return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) /
+        (1000 * 60 * 60));
+
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) /
+        (1000 * 60));
+
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("timer").innerHTML =
+        days + "d " +
+        hours + "h " +
+        minutes + "m " +
+        seconds + "s";
+
+}, 1000);
+
+// ===== 100 REASONS =====
+
+const reasons = [
+
+"Because you make me smile.",
+"Because you're my best friend.",
+"Because you always support me.",
+"Because you're handsome.",
+"Because you're kind.",
+"Because you make me feel safe.",
+"Because your hugs are home.",
+"Because your smile is beautiful.",
+"Because you believe in us.",
+"Because you make me laugh."
+
+];
+
+// Auto-fill remaining reasons
+for(let i = reasons.length + 1; i <= 100; i++){
+    reasons.push("Reason #" + i + " — Because I love everything about you ❤️");
+}
+
+const container = document.getElementById("reasonContainer");
+
+reasons.forEach(reason => {
+
+    const card = document.createElement("div");
+
+    card.className = "reason";
+
+    card.innerHTML = reason;
+
+    container.appendChild(card);
+
+});
+
+// ===== CONFETTI =====
+
+function celebrate(){
+
+confetti({
+
+particleCount:300,
+
+spread:200,
+
+origin:{y:0.6}
+
+});
+
+}
+
+// ===== OPEN WHEN LETTERS =====
+
+const letters = document.querySelectorAll(".letter");
+
+const messages = [
+
+"I'll always be with you no matter the distance. ❤️",
+
+"I hope this reminds you how deeply you're loved. 💖",
+
+"Seeing you happy makes me happy. 🥹",
+
+"Forever begins with us. ❤️"
+
+];
+
+letters.forEach((letter,index)=>{
+
+letter.onclick=function(){
+
+alert(messages[index]);
+
+}
+
+});
